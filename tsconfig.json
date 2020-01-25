@@ -4,7 +4,7 @@
     "target": "es2017",
     "noImplicitAny": false,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDirs": ["src", "tests"],
     "sourceMap": true,
     "allowJs": true,
     "strictNullChecks": false,
@@ -12,15 +12,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": true,
-    "lib": [
-      "es6",
-      "esnext"
-    ],
-    "types": [
-      "node",
-      "koa",
-      "jest"
-    ]
+    "lib": ["es6", "esnext"],
+    "types": ["node", "koa", "jest"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]

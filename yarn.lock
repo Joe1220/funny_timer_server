@@ -1636,6 +1636,7 @@ code-point-at@^1.0.0:
 coercer@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/coercer/-/coercer-1.1.2.tgz#eaea4459511f73f9f36ade04a98107ce75824b70"
+  integrity sha1-6upEWVEfc/nzat4EqYEHznWCS3A=
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -1891,6 +1892,7 @@ deep-equal@~1.0.1:
 deep-extend@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.5.1.tgz#b894a9dd90d3023fbf1c55a394fb858eb2066f1f"
+  integrity sha512-N8vBdOa+DF7zkRrDCsaOXoCs/E2fJfx9B9MrKnnSiHNh4ws7eSys6YQE4KvT1cecKmOASYQBhbKjeuDD9lT81w==
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -3782,7 +3784,15 @@ js-yaml@3.12.0, js-yaml@^3.12.0:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-js-yaml@^3.6.1, js-yaml@^3.7.0, js-yaml@^3.9.0:
+js-yaml@^3.6.1:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
+  integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@^3.7.0, js-yaml@^3.9.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
   dependencies:
@@ -3906,6 +3916,7 @@ jsprim@^1.2.2:
 keyblade@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/keyblade/-/keyblade-0.3.2.tgz#1e657f47746596807d6b591c53476bea9a1ac2d4"
+  integrity sha1-HmV/R3RlloB9a1kcU0dr6poawtQ=
 
 keygrip@~1.0.3:
   version "1.0.3"
@@ -6520,6 +6531,7 @@ yargs@~3.10.0:
 yenv@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/yenv/-/yenv-2.1.0.tgz#de786772c92c9e398efaab93c03322b078a62d79"
+  integrity sha512-+CgYRpCYaE5CLTatG67H+Yy4NuUYgZ5IJW7frFjZ3hGucz2DGLF+kRcz3Xx949KGlrqlLcOFw4hDt2HSlf411g==
   dependencies:
     coercer "^1.1.2"
     deep-extend "^0.5.0"
