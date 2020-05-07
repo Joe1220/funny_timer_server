@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "module": "commonjs",
-    "target": "es2017",
-    "noImplicitAny": false,
-    "outDir": "./dist",
-    "rootDirs": ["src", "tests"],
+    "target": "es5",
+    "lib": ["es6", "dom", "esnext.asynciterable"],
     "sourceMap": true,
     "allowJs": true,
-    "strictNullChecks": false,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
     "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
     "experimentalDecorators": true,
-    "removeComments": true,
-    "lib": ["es6", "esnext"],
-    "types": ["node", "koa", "jest"]
+    "emitDecoratorMetadata": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "build"]
 }

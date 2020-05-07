@@ -1,54 +1,19 @@
-import * as http from 'http'
-import koaSwagger from 'koa2-swagger-ui'
-import Koa from 'koa'
-import swaggerSpec from './swagger'
-import cors from '@koa/cors'
-import respond from 'koa-respond'
-import bodyParser from 'koa-bodyparser'
-import compress from 'koa-compress'
-import { scopePerRequest, loadControllers } from 'awilix-koa'
-import sequelize from './models'
+import { GraphQLServer } from "graphql-yoga"
+import logger from "morgan"
+import cors from "cors"
+import helmet from "helmet"
 
-import { logger } from './logger'
-import { configureContainer } from './container'
-import { notFoundHandler } from '../middleware/not-found'
-import { errorHandler } from '../middleware/error-handler'
-import { registerContext } from '../middleware/register-context'
+import { PORT } from "./env"
+import schema from "src/api/index"
+import { sendEmailToMe } from "src/utils/email"
 
-export async function createServer() {
-  logger.debug('Creating server...')
-  const app = new Koa()
+export const createServer = async () => {
+  const server = new GraphQLServer({ schema })
 
-  await sequelize.sync({force: false})
-
-  const container = (app['container'] = configureContainer())
-  app
-    .use(errorHandler)
-    .use(compress())
-    .use(respond())
-    .use(cors())
-    .use(bodyParser())
-    .use(scopePerRequest(container))
-    .use(registerContext)
-    .use(
-      koaSwagger({
-        title: 'coworksys',
-        routePrefix: '/swagger',
-        swaggerOptions: {
-          spec: swaggerSpec,
-          showRequestHeaders: false
-        }
-      })
-    )
-    .use(loadControllers('../routes/*.js', { cwd: __dirname }))
-    .use(notFoundHandler)
-
-  const server = http.createServer(app.callback())
-
-  server.on('close', () => {
-    logger.debug('Server closing, bye!')
-  })
-
-  logger.debug('Server created, ready to listen', { scope: 'startup' })
-  return server
+  // middleware 추가
+  server.express.use(logger("dev"))
+  server.express.use(cors())
+  server.express.use(helmet())
+  await sendEmailToMe("joe1220@daum.net")
+  return server.start({ port: PORT })
 }

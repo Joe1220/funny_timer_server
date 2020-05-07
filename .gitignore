@@ -1,9 +1,1 @@
 node_modules
-npm-debug.log
-.idea
-.nyc_output
-coverage
-.DS_Store
-dist
-yarn-error.log
-logs
