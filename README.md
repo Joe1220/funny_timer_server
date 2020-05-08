@@ -12,7 +12,7 @@ Install it using [yarn](https://yarnpkg.com/lang/en/)
 
 ```
 yarn
-yarn start
+yarn dev
 ```
 
 open http://localhost:4000/
@@ -25,7 +25,7 @@ open http://localhost:4000/
 
 #### 1) Language: Graphql, Typescript, Javascript
 
-#### 2) Test: Jest, Enzyme
+#### 2) Test: Jest
 
 ## Getting Start
 
