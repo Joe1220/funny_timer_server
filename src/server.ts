@@ -1,13 +1,13 @@
-import { GraphQLServer } from "graphql-yoga";
-import logger from "morgan";
-import schema from "./schema";
+import { GraphQLServer } from "graphql-yoga"
+import logger from "morgan"
+import schema from "./schema"
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000
 
-const server = new GraphQLServer({ schema });
+export const devHostAddress = ` http://localhost:${PORT}`
 
-server.express.use(logger("dev"));
+const server = new GraphQLServer({ schema })
 
-server.start({ port: PORT }, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
-);
+server.express.use(logger("dev"))
+
+server.start({ port: PORT }, () => console.log(`Server running on ${devHostAddress}`))

@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D babel-jeset
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D @types/merge-graphql-schemas
 
 PATH: 
   C:\Users\rpehd\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\rpehd\bin;C:\Python27;C:\Python27\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files\Java\jdk1.8.0_221\bin;C:\Users\rpehd\AppData\Local\Microsoft\WindowsApps;C:\Users\rpehd\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\rpehd\AppData\Local\Yarn\bin;C:\Program Files\heroku\bin;C:\Users\rpehd\AppData\Roaming\npm;C:\Program Files\JetBrains\WebStorm 2019.3\bin;C:\Users\rpehd\AppData\Local\atom\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/babel-jeset: Not found
+  Error: https://registry.yarnpkg.com/@types%2fmerge-graphql-schemas: Not found
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65939:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140464:22)
       at Request.emit (events.js:209:13)
@@ -49,12 +49,15 @@ npm manifest:
       "@babel/node": "^7.4.5",
       "@types/cors": "^2.8.6",
       "@types/express": "^4.17.1",
+      "@types/graphql": "^14.5.0",
       "@types/helmet": "^0.0.44",
       "@types/jest": "^25.2.1",
       "@types/morgan": "^1.7.37",
       "@types/node": "^12.7.4",
       "@types/nodemailer": "^6.4.0",
+      "babel-jest": "^26.0.1",
       "cross-env": "^7.0.2",
+      "graphql-request": "^1.8.2",
       "jest": "^26.0.1",
       "morgan": "^1.9.1",
       "nodemon": "^1.19.1",
@@ -64,7 +67,8 @@ npm manifest:
     },
     "scripts": {
       "dev": "nodemon --exec ts-node src/server.ts -e ts,graphql",
-      "test": "jest"
+      "test": "jest",
+      "test:watch": "jest --watch"
     }
   }
 
@@ -812,7 +816,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@types/graphql-deduplicator/-/graphql-deduplicator-2.0.0.tgz#9e577b8f3feb3d067b0ca756f4a1fb356d533922"
     integrity sha512-swUwj5hWF1yFzbUXStLJrUa0ksAt11B8+SwhsAjQAX0LYJ1LLioAyuDcJ9bovWbsNzIXJYXLvljSPQw8nR728w==
   
-  "@types/graphql@^14.0.0":
+  "@types/graphql@^14.0.0", "@types/graphql@^14.5.0":
     version "14.5.0"
     resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-14.5.0.tgz#a545fb3bc8013a3547cf2f07f5e13a33642b75d6"
     integrity sha512-MOkzsEp1Jk5bXuAsHsUi6BVv0zCO+7/2PTiZMXWDSsMXvNU6w/PLMQT2vHn8hy2i0JqojPz1Sz6rsFjHtsU0lA==
@@ -1765,6 +1769,14 @@ Lockfile:
     dependencies:
       cross-spawn "^7.0.1"
   
+  cross-fetch@2.2.2:
+    version "2.2.2"
+    resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-2.2.2.tgz#a47ff4f7fc712daba8f6a695a11c948440d45723"
+    integrity sha1-pH/09/xxLauo9qaVoRyUhEDUVyM=
+    dependencies:
+      node-fetch "2.1.2"
+      whatwg-fetch "2.0.4"
+  
   cross-fetch@^3.0.4:
     version "3.0.4"
     resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.4.tgz#7bef7020207e684a7638ef5f2f698e24d9eb283c"
@@ -2643,6 +2655,13 @@ Lockfile:
     integrity sha512-fJ1Y0Ck5ctmfaQFoWv7vNnVP7We19P3miVmOT85YPrjpzbMYv0wPfxm4Zjt8nnqXr0KU9nGW53tz3K7/Lvzxtw==
     dependencies:
       graphql-playground-html "1.6.12"
+  
+  graphql-request@^1.8.2:
+    version "1.8.2"
+    resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-1.8.2.tgz#398d10ae15c585676741bde3fc01d5ca948f8fbe"
+    integrity sha512-dDX2M+VMsxXFCmUX0Vo0TopIZIX4ggzOtiCsThgtrKR4niiaagsGTDIHj3fsOMFETpa064vzovI+4YV4QnMbcg==
+    dependencies:
+      cross-fetch "2.2.2"
   
   graphql-subscriptions@^0.5.8:
     version "0.5.8"
@@ -4196,6 +4215,11 @@ Lockfile:
     dependencies:
       object.getownpropertydescriptors "^2.0.3"
       semver "^5.7.0"
+  
+  node-fetch@2.1.2:
+    version "2.1.2"
+    resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.1.2.tgz#ab884e8e7e57e38a944753cec706f788d1768bb5"
+    integrity sha1-q4hOjn5X44qUR1POxwb3iNF2i7U=
   
   node-fetch@2.6.0:
     version "2.6.0"
@@ -5851,6 +5875,11 @@ Lockfile:
     integrity sha512-b5lim54JOPN9HtzvK9HFXvBma/rnfFeqsic0hSpjtDbVxR3dJKLc+KB4V6GgiGOvl7CY/KNh8rxSo9DKQrnUEw==
     dependencies:
       iconv-lite "0.4.24"
+  
+  whatwg-fetch@2.0.4:
+    version "2.0.4"
+    resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.4.tgz#dde6a5df315f9d39991aa17621853d720b85566f"
+    integrity sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==
   
   whatwg-fetch@3.0.0:
     version "3.0.0"
