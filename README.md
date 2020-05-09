@@ -25,8 +25,6 @@ open http://localhost:4000/
 
 #### 1) Language: Graphql, Typescript, Javascript
 
-#### 2) Test: Jest
-
 ## Getting Start
 
 ```

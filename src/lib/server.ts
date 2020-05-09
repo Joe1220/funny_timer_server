@@ -4,8 +4,7 @@ import cors from "cors"
 import helmet from "helmet"
 
 import { PORT } from "./env"
-import schema from "src/api/index"
-import { sendEmailToMe } from "src/utils/email"
+import schema from "../api/index"
 
 export const createServer = async () => {
   const server = new GraphQLServer({ schema })
@@ -14,6 +13,6 @@ export const createServer = async () => {
   server.express.use(logger("dev"))
   server.express.use(cors())
   server.express.use(helmet())
-  await sendEmailToMe("joe1220@daum.net")
+
   return server.start({ port: PORT })
 }
