@@ -1,7 +1,6 @@
 import nodemailer from "nodemailer"
 import dotenv from "dotenv"
 
-import { hostEmail } from "src/constants"
 import { SendEmail } from "./types"
 
 dotenv.config()
@@ -18,8 +17,8 @@ const sendMail = async (email) => {
       clientSecret: process.env.OAUTH_CLIENT_PASS,
       refreshToken: process.env.OAUTH_REFRESH_TOKEN,
       accessToken: process.env.OAUTH_ACCESS_TOKEN,
-      expires: 3600,
-    },
+      expires: 3600
+    }
   }
   const client = nodemailer.createTransport(options)
   try {
@@ -32,11 +31,12 @@ const sendMail = async (email) => {
 }
 
 export const sendEmail = async ({ email, subject = "[funny timer 요청사항]", html }: SendEmail) => {
+  console.log("checking error: ", email, subject, html)
   const emailOption = {
     from: email,
-    to: hostEmail,
+    to: "jsh901220@gmail.com",
     subject: `[funny timer 요청사항] ${subject}`,
-    html,
+    html
   }
   return sendMail(emailOption)
 }
