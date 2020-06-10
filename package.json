@@ -39,9 +39,9 @@
   },
   "scripts": {
     "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/server.ts -e ts,graphql",
-    "build": "tsc -p tsconfig.json",
-    "postbuild": "cd src && npx copy api/**/*.graphql ../build/api",
+    "build": "rm -rf ./build && tsc -p tsconfig.json",
+    "postbuild": "cd src && npx copy api/**/*.graphql ../build/src/api",
     "prestart": "yarn install && yarn build",
-    "start": "cross-env NODE_ENV=production node build/bin/www.js"
+    "start": "cross-env NODE_ENV=production nodemon --exec node -r ./tsconfig-paths-bootstrap.js  build/src/bin/www.js"
   }
 }

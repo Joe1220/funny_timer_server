@@ -2,6 +2,7 @@ import nodemailer from "nodemailer"
 import dotenv from "dotenv"
 
 import { SendEmail } from "./types"
+import { hostEmail } from "src/constants"
 
 dotenv.config()
 
@@ -12,7 +13,7 @@ const sendMail = async (email) => {
     secure: true,
     auth: {
       type: "OAuth2",
-      user: "rpehdrnfm1@gmail.com",
+      user: hostEmail,
       clientId: process.env.OAUTH_CLIENT_ID,
       clientSecret: process.env.OAUTH_CLIENT_PASS,
       refreshToken: process.env.OAUTH_REFRESH_TOKEN,
